@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-indigo-500: #6366f1;
+  --color-green-500: #22c55e;
+  --color-red-500: #ef4444;
+  --color-slate-50: #f1f5f9;
+  --color-slate-400: #94a3b8;
+
+  --color-primary: var(--color-indigo-500);
+  --color-bg-dark: var(--color-slate-900);
+  --color-card-dark: var(--color-slate-800);
+  --color-border-dark: var(--color-slate-700);
+  --color-income: var(--color-green-500);
+  --color-expense: var(--color-red-500);
+  --color-text-primary: var(--color-slate-50);
+  --color-text-muted: var(--color-slate-400);
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-50;
+    font-family: var(--font-sans);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full hover:bg-slate-600 transition-colors;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-2 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-indigo-500 text-white hover:bg-indigo-600 shadow-md shadow-indigo-500/10;
+  }
+
+  .btn-outline {
+    @apply border border-slate-700 text-slate-400 hover:text-slate-50 hover:bg-slate-800;
+  }
+
+  .card {
+    @apply bg-slate-800 border border-slate-700 rounded-xl overflow-hidden;
+  }
+
+  .input-field {
+    @apply bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-50 w-full transition-all;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-400 mb-1.5;
+  }
+}
