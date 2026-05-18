@@ -58,12 +58,12 @@ const Profile = () => {
           </div>
 
           <div className="pt-4 border-t border-slate-700/50">
-            <button className="btn btn-outline w-full py-3 mb-4 font-semibold text-slate-300">
+            {/* <button className="btn btn-outline w-full py-3 mb-4 font-semibold text-slate-300">
               <MdLockOutline size={20} />
               Change Password
-            </button>
-            
-            <button 
+            </button> */}
+
+            <button
               onClick={handleLogout}
               className="btn w-full bg-red-500 text-white hover:bg-red-600 py-3 font-semibold shadow-md shadow-red-500/20"
             >

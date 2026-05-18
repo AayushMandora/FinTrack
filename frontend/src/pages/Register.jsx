@@ -36,22 +36,28 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-900 overflow-hidden relative">
-      <div className="w-full max-w-md animate-in slide-in-from-bottom duration-500">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-50 overflow-hidden relative">
+      {/* Abstract Background Decoration */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+      <div className="w-full max-w-md animate-in slide-in-from-bottom duration-500 relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center p-3 bg-indigo-500/10 rounded-2xl mb-4 border border-indigo-500/20 group cursor-pointer transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-indigo-500/10">
-            <span className="text-3xl font-bold text-indigo-500">FT</span>
-          </div>
-          <h1 className="text-4xl font-bold text-slate-50">Create Account</h1>
-          <p className="mt-3 text-slate-400 font-medium">Join us and start managing your finances.</p>
+          <Link to="/" className="inline-block group">
+            <div className="inline-flex items-center justify-center p-3 bg-indigo-600/5 rounded-2xl mb-4 border border-indigo-100 group-hover:border-indigo-200 transition-all shadow-lg shadow-indigo-100">
+              <span className="text-3xl font-bold text-indigo-600">FT</span>
+            </div>
+            <h1 className="text-4xl font-bold text-slate-900">Create Account</h1>
+          </Link>
+          <p className="mt-3 text-slate-500 font-medium">Join us and start managing your finances.</p>
         </div>
 
-        <div className="card shadow-2xl shadow-indigo-500/5 backdrop-blur-sm bg-slate-800/80 p-8 border-slate-700/50">
+        <div className="card shadow-xl shadow-indigo-100 p-8 border-slate-200">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label className="label">Full Name</label>
               <div className="relative group">
-                <MdOutlinePersonOutline className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                <MdOutlinePersonOutline className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-600 transition-colors" size={20} />
                 <input
                   type="text"
                   name="name"
@@ -66,7 +72,7 @@ const Register = () => {
             <div>
               <label className="label">Email Address</label>
               <div className="relative group">
-                <MdOutlineMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                <MdOutlineMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-600 transition-colors" size={20} />
                 <input
                   type="email"
                   name="email"
@@ -81,7 +87,7 @@ const Register = () => {
             <div>
               <label className="label">Password</label>
               <div className="relative group">
-                <MdLockOutline className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                <MdLockOutline className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-600 transition-colors" size={20} />
                 <input
                   type="password"
                   name="password"
@@ -96,7 +102,7 @@ const Register = () => {
             <div>
               <label className="label">Confirm Password</label>
               <div className="relative group">
-                <MdLockOutline className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                <MdLockOutline className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-600 transition-colors" size={20} />
                 <input
                   type="password"
                   name="confirmPassword"
@@ -112,7 +118,7 @@ const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className="btn btn-primary w-full py-3.5 mt-2 shadow-lg shadow-indigo-500/20"
+              className="btn btn-primary w-full py-3.5 mt-2 shadow-lg shadow-indigo-200"
             >
               {loading ? (
                 <div className="flex items-center gap-3">
@@ -125,9 +131,9 @@ const Register = () => {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-slate-400 font-medium font-sans">
+          <p className="mt-8 text-center text-slate-500 font-medium font-sans">
             Already have an account?{' '}
-            <Link to="/login" className="text-indigo-500 hover:text-indigo-400 hover:underline transition-all">
+            <Link to="/login" className="text-indigo-600 hover:text-indigo-700 hover:underline transition-all">
               Login here
             </Link>
           </p>

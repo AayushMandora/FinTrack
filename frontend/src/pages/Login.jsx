@@ -27,19 +27,24 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-900 overflow-hidden relative">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-slate-50 overflow-hidden relative">
+      {/* Abstract Background Decoration */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-      <div className="w-full max-w-md animate-in fade-in zoom-in duration-500">
+      <div className="w-full max-w-md animate-in fade-in zoom-in duration-500 relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center p-3 bg-indigo-500/10 rounded-2xl mb-4 border border-indigo-500/20 group">
-            <span className="text-3xl font-bold text-indigo-500 group-hover:scale-110 transition-transform">FT</span>
-          </div>
-          <h1 className="text-4xl font-bold text-slate-50">FinTrack</h1>
-          <p className="mt-3 text-slate-400 font-medium">Simplify your savings, manage with ease.</p>
+          <Link to="/" className="inline-block group">
+            <div className="inline-flex items-center justify-center p-3 bg-indigo-600/5 rounded-2xl mb-4 border border-indigo-100 group-hover:border-indigo-200 transition-all">
+              <span className="text-3xl font-bold text-indigo-600 group-hover:scale-110 transition-transform">FT</span>
+            </div>
+            <h1 className="text-4xl font-bold text-slate-900">FinTrack</h1>
+          </Link>
+          <p className="mt-3 text-slate-500 font-medium">Simplify your savings, manage with ease.</p>
         </div>
 
-        <div className="card shadow-2xl shadow-indigo-500/5 backdrop-blur-sm bg-slate-800/80 p-8 border-slate-700/50">
-          <h2 className="text-2xl font-bold mb-6 text-slate-50">Welcome back</h2>
+        <div className="card shadow-xl shadow-indigo-100 p-8 border-slate-200">
+          <h2 className="text-2xl font-bold mb-6 text-slate-900">Welcome back</h2>
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label className="label">Email Address</label>
@@ -75,7 +80,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="btn btn-primary w-full py-3.5 mt-2 shadow-lg shadow-indigo-500/20"
+              className="btn btn-primary w-full py-3.5 mt-2 shadow-lg shadow-indigo-200"
             >
               {loading ? (
                 <div className="flex items-center gap-3">
@@ -88,9 +93,9 @@ const Login = () => {
             </button>
           </form>
 
-          <p className="mt-8 text-center text-slate-400 font-medium">
+          <p className="mt-8 text-center text-slate-500 font-medium">
             Don't have an account?{' '}
-            <Link to="/register" className="text-indigo-500 hover:text-indigo-400 hover:underline transition-all">
+            <Link to="/register" className="text-indigo-600 hover:text-indigo-700 hover:underline transition-all">
               Create an account
             </Link>
           </p>

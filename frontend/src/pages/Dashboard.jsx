@@ -86,9 +86,9 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center h-full gap-4 text-indigo-500 min-h-[500px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
-        <p className="text-slate-400 font-medium">Loading Dashboard...</p>
+      <div className="flex flex-col items-center justify-center h-full gap-4 text-indigo-600 min-h-[500px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
+        <p className="text-slate-500 font-medium">Loading Dashboard...</p>
       </div>
     );
   }
@@ -98,8 +98,8 @@ const Dashboard = () => {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h1 className="text-3xl font-bold text-slate-50">Dashboard</h1>
-          <p className="text-slate-400 font-medium mt-1">Welcome back. Here is your financial overview.</p>
+          <h1 className="text-3xl font-bold text-slate-900">Dashboard</h1>
+          <p className="text-slate-500 font-medium mt-1">Welcome back. Here is your financial overview.</p>
         </div>
         <div className="flex items-center gap-3">
           <button
@@ -107,11 +107,11 @@ const Dashboard = () => {
             className="btn btn-outline p-2.5 transition-transform hover:rotate-180"
             title="Refresh dashboard"
           >
-            <MdRefresh size={22} className="text-slate-400" />
+            <MdRefresh size={22} className="text-slate-500" />
           </button>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="btn btn-primary px-6 py-3 shadow-indigo-500/20 shadow-lg scale-105 hover:scale-110 active:scale-95 transition-all"
+            className="btn btn-primary px-6 py-3 shadow-indigo-100 shadow-lg scale-105 hover:scale-110 active:scale-95 transition-all"
           >
             <MdAdd size={24} />
             <span>Add Transaction</span>
@@ -139,12 +139,10 @@ const Dashboard = () => {
       </div>
 
       {/* Charts Grid */}
-      {/* <div className="grid grid-cols-1 xl:grid-cols-2 gap-8"> */}
-      <div className="transition-all hover:shadow-2xl hover:shadow-indigo-500/5 duration-500">
+      <div className="transition-all hover:shadow-xl hover:shadow-indigo-600/5 duration-500 border border-transparent hover:border-slate-100 rounded-2xl overflow-hidden bg-white">
         <MonthlyBarChart data={chartData.monthlyData} />
       </div>
-      {/* </div> */}
-      <div className="transition-all hover:shadow-2xl hover:shadow-indigo-500/5 duration-500">
+      <div className="transition-all hover:shadow-xl hover:shadow-indigo-600/5 duration-500 border border-transparent hover:border-slate-100 rounded-2xl overflow-hidden bg-white">
         <CategoryPieChart data={chartData.categoryData} />
       </div>
 

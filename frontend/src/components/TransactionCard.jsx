@@ -8,19 +8,19 @@ const TransactionCard = ({ transaction, onDelete, onEdit }) => {
   const isIncome = type === 'income';
 
   return (
-    <div className="card p-5 flex flex-col md:flex-row md:items-center justify-between gap-5 group hover:border-slate-600/50 hover:bg-slate-700/30 transition-all duration-300 animate-in slide-in-from-left duration-500">
+    <div className="card p-5 flex flex-col md:flex-row md:items-center justify-between gap-5 group hover:border-indigo-100 hover:bg-white transition-all duration-300 animate-in slide-in-from-left duration-500">
       <div className="flex items-center gap-5 flex-1 min-w-0">
-        <div className={`p-3.5 rounded-2xl border ${isIncome ? 'bg-green-500/10 border-green-500/20 text-green-500' : 'bg-red-500/10 border-red-500/20 text-red-500'}`}>
-          {isIncome ? <MdTrendingUp size={24} /> : <MdTrendingDown size={24} />}
+        <div className={`p-4 rounded-2xl border ${isIncome ? 'bg-green-50 border-green-100 text-green-600' : 'bg-red-50 border-red-100 text-red-600'}`}>
+          {isIncome ? <MdTrendingUp size={28} /> : <MdTrendingDown size={28} />}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-center gap-3 mb-1.5">
-            <span className="text-sm font-bold text-slate-400 tracking-wide">
+          <div className="flex flex-wrap items-center gap-3 mb-1">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
               {format(new Date(date), 'MMM dd, yyyy')}
             </span>
             <CategoryBadge name={category?.name} />
           </div>
-          <p className="text-slate-50 font-semibold text-lg truncate pr-4">
+          <p className="text-slate-900 font-bold text-lg truncate pr-4">
             {note || 'No note added'}
           </p>
         </div>
@@ -28,7 +28,7 @@ const TransactionCard = ({ transaction, onDelete, onEdit }) => {
 
       <div className="flex items-center justify-between md:justify-end gap-6 md:gap-8">
         <div className="text-right">
-          <p className={`text-xl font-bold ${isIncome ? 'text-green-500' : 'text-red-500'}`}>
+          <p className={`text-2xl font-black ${isIncome ? 'text-green-600' : 'text-red-600'}`}>
             {isIncome ? '+' : '-'}₹{amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
           </p>
         </div>
@@ -36,17 +36,17 @@ const TransactionCard = ({ transaction, onDelete, onEdit }) => {
         <div className="flex items-center gap-2 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <button
             onClick={() => onEdit(transaction)}
-            className="p-2.5 rounded-xl bg-slate-800/50 text-slate-400 hover:text-indigo-500 hover:bg-indigo-500/10 border border-slate-700/50 hover:border-indigo-500/30 transition-all active:scale-90"
+            className="p-2.5 rounded-xl bg-slate-50 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 border border-slate-100 hover:border-indigo-100 transition-all active:scale-90"
             title="Edit"
           >
-            <MdEditNote size={22} />
+            <MdEditNote size={24} />
           </button>
           <button
             onClick={() => onDelete(_id)}
-            className="p-2.5 rounded-xl bg-slate-800/50 text-slate-400 hover:text-red-500 hover:bg-red-500/10 border border-slate-700/50 hover:border-red-500/30 transition-all active:scale-90"
+            className="p-2.5 rounded-xl bg-slate-50 text-slate-400 hover:text-red-600 hover:bg-red-50 border border-slate-100 hover:border-red-100 transition-all active:scale-90"
             title="Delete"
           >
-            <MdDeleteOutline size={22} />
+            <MdDeleteOutline size={24} />
           </button>
         </div>
       </div>

@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 // Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Categories from './pages/Categories';
@@ -18,7 +19,7 @@ import Navbar from './components/Navbar';
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="flex min-h-screen bg-slate-900 text-slate-50">
+    <div className="flex min-h-screen bg-slate-50 text-slate-900">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <Navbar />
@@ -34,26 +35,28 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="min-h-screen bg-slate-900 selection:bg-indigo-500/30">
+        <div className="min-h-screen bg-slate-50 selection:bg-indigo-100">
           <Toaster
             position="top-right"
             toastOptions={{
               duration: 3000,
               style: {
-                background: '#1e293b',
-                color: '#f1f5f9',
-                border: '1px solid #334155',
+                background: '#ffffff',
+                color: '#0f172a',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
               },
             }}
           />
           <Routes>
             {/* Public Routes */}
+            <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
             {/* Private Routes */}
             <Route element={<ProtectedRoute />}>
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
               <Route
                 path="/dashboard"
                 element={

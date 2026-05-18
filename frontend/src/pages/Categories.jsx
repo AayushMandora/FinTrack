@@ -29,7 +29,7 @@ const Categories = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name) return toast.error('Category name is required');
-    
+
     setIsSubmitting(true);
     try {
       await api.post('/categories', formData);
@@ -135,7 +135,7 @@ const Categories = () => {
               {incomeCategories.map((cat) => (
                 <CategoryCard key={cat._id} category={cat} onDelete={handleDelete} />
               ))}
-              {incomeCategories.length === 0 && <p className="text-slate-500 text-sm font-medium">No income categories found.</p>}
+              {incomeCategories.length === 0 && <p className="text-black text-sm font-medium">No income categories found.</p>}
             </div>
           </section>
 
@@ -149,7 +149,7 @@ const Categories = () => {
               {expenseCategories.map((cat) => (
                 <CategoryCard key={cat._id} category={cat} onDelete={handleDelete} />
               ))}
-              {expenseCategories.length === 0 && <p className="text-slate-500 text-sm font-medium">No expense categories found.</p>}
+              {expenseCategories.length === 0 && <p className="text-black text-sm font-medium">No expense categories found.</p>}
             </div>
           </section>
         </div>
@@ -165,7 +165,7 @@ const CategoryCard = ({ category, onDelete }) => (
         <MdLayers size={20} />
       </div>
       <div>
-        <h4 className="text-slate-50 font-semibold text-sm">{category.name}</h4>
+        <h4 className="text-black font-semibold text-sm">{category.name}</h4>
         <p className="text-xs text-slate-500 font-medium mt-0.5">
           {category.isDefault ? 'Default' : 'Custom'}
         </p>

@@ -6,13 +6,13 @@ const COLORS = ['#6366f1', '#22c55e', '#ef4444', '#f59e0b', '#ec4899', '#8b5cf6'
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-slate-800/90 border border-slate-700 p-3 rounded-lg shadow-2xl backdrop-blur-sm animate-in zoom-in duration-200">
+      <div className="bg-white/95 border border-slate-200 p-3 rounded-lg shadow-lg backdrop-blur-sm animate-in zoom-in duration-200">
         <div className="flex flex-col gap-1">
-          <p className="text-sm font-bold text-slate-100">{payload[0].name}</p>
-          <p className="text-xs font-semibold text-slate-400">
-            Amount: <span className="text-slate-100">₹{payload[0].value.toLocaleString()}</span>
+          <p className="text-sm font-bold text-slate-900">{payload[0].name}</p>
+          <p className="text-xs font-semibold text-slate-500">
+            Amount: <span className="text-slate-900">₹{payload[0].value.toLocaleString()}</span>
           </p>
-          <p className="text-xs font-medium text-indigo-500">
+          <p className="text-xs font-medium text-indigo-600">
             {((payload[0].value / payload[0].payload.total) * 100).toFixed(1)}% of total
           </p>
         </div>
@@ -28,10 +28,10 @@ const CategoryPieChart = ({ data }) => {
   const chartData = data.map(item => ({ ...item, total }));
 
   return (
-    <div className="h-[350px] w-full p-4 card select-none">
+    <div className="h-[350px] w-full p-4 card select-none shadow-none border-none">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-slate-50">Expense Breakdown</h3>
-        <p className="text-sm text-slate-400">By category current month</p>
+        <h3 className="text-lg font-bold text-slate-900">Expense Breakdown</h3>
+        <p className="text-sm text-slate-500">By category current month</p>
       </div>
       <ResponsiveContainer width="100%" height="80%">
         <PieChart>
@@ -57,7 +57,7 @@ const CategoryPieChart = ({ data }) => {
             iconType="circle"
             wrapperStyle={{ paddingLeft: '20px' }}
             formatter={(value, entry) => (
-              <span className="text-slate-400 text-xs font-semibold hover:text-slate-100 transition-colors">{value}</span>
+              <span className="text-slate-500 text-xs font-semibold hover:text-indigo-600 transition-colors uppercase tracking-wider">{value}</span>
             )}
           />
         </PieChart>

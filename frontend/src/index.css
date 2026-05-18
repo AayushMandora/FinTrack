@@ -1,30 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-slate-900: #0f172a;
-  --color-slate-800: #1e293b;
-  --color-slate-700: #334155;
-  --color-indigo-500: #6366f1;
-  --color-green-500: #22c55e;
-  --color-red-500: #ef4444;
-  --color-slate-50: #f1f5f9;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
   --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  
+  --color-indigo-500: #6366f1;
+  --color-indigo-600: #4f46e5;
+  --color-indigo-700: #4338ca;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
 
-  --color-primary: var(--color-indigo-500);
-  --color-bg-dark: var(--color-slate-900);
-  --color-card-dark: var(--color-slate-800);
-  --color-border-dark: var(--color-slate-700);
-  --color-income: var(--color-green-500);
-  --color-expense: var(--color-red-500);
-  --color-text-primary: var(--color-slate-50);
-  --color-text-muted: var(--color-slate-400);
+  --color-primary: var(--color-indigo-600);
+  --color-bg-main: var(--color-slate-50);
+  --color-card: #ffffff;
+  --color-border-main: var(--color-slate-200);
+  --color-income: var(--color-green-600);
+  --color-expense: var(--color-red-600);
+  --color-text-primary: var(--color-slate-900);
+  --color-text-muted: var(--color-slate-500);
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-slate-900 text-slate-50;
+    @apply bg-slate-50 text-slate-900;
     font-family: var(--font-sans);
   }
 
@@ -35,36 +45,47 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-slate-900;
+    @apply bg-slate-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-700 rounded-full hover:bg-slate-600 transition-colors;
+    @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-2 cursor-pointer;
+    @apply px-4 py-2 rounded-lg font-medium transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-2 cursor-pointer outline-none;
   }
 
   .btn-primary {
-    @apply bg-indigo-500 text-white hover:bg-indigo-600 shadow-md shadow-indigo-500/10;
+    @apply bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm shadow-indigo-200;
   }
 
   .btn-outline {
-    @apply border border-slate-700 text-slate-400 hover:text-slate-50 hover:bg-slate-800;
+    @apply border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-100;
   }
 
   .card {
-    @apply bg-slate-800 border border-slate-700 rounded-xl overflow-hidden;
+    @apply bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm;
   }
 
   .input-field {
-    @apply bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-slate-50 w-full transition-all;
+    @apply bg-white border border-slate-200 rounded-lg px-4 py-2.5 outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 text-slate-900 w-full transition-all;
   }
 
   .label {
-    @apply block text-sm font-medium text-slate-400 mb-1.5;
+    @apply block text-sm font-medium text-slate-700 mb-1.5;
   }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

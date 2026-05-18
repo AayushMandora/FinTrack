@@ -48,30 +48,30 @@ const Sidebar = () => {
       </button>
 
       {/* Sidebar Content */}
-      <aside className={`fixed lg:static inset-y-0 left-0 w-80 bg-slate-800 border-r border-slate-700/50 flex flex-col z-40 transition-transform duration-500 ease-out transform ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} overflow-hidden group`}>
-        {/* Glow Detail */}
-        <div className="absolute top-0 right-0 w-full h-[600px] bg-gradient-to-b from-indigo-500/5 to-transparent pointer-events-none"></div>
+      <aside className={`fixed lg:static inset-y-0 left-0 w-80 bg-white border-r border-slate-200 flex flex-col z-40 transition-transform duration-500 ease-out transform ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} overflow-hidden group shadow-sm`}>
+        {/* Subtle Detail */}
+        <div className="absolute top-0 right-0 w-full h-[600px] bg-gradient-to-b from-indigo-50/20 to-transparent pointer-events-none"></div>
 
         {/* Branding */}
         <div className="p-8 flex items-center gap-4">
-          <div className="p-2 bg-indigo-500/10 rounded-xl border border-indigo-500/20 text-indigo-500">
+          <div className="p-2 bg-indigo-600/5 rounded-xl border border-indigo-100 text-indigo-600">
             <MdDashboard size={28} />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-slate-50">FinTrack</h1>
-            <p className="text-xs text-slate-400 font-medium">Personal Finance</p>
+            <h1 className="text-xl font-bold text-slate-900">FinTrack</h1>
+            <p className="text-xs text-slate-500 font-medium">Personal Finance</p>
           </div>
         </div>
 
         {/* User Card */}
         <div className="px-6 mb-8">
-          <div className="p-4 bg-slate-900/40 rounded-xl border border-slate-700 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-500 font-bold text-lg">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-indigo-600/5 border border-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg">
               {user?.name?.[0] || 'U'}
             </div>
             <div className="min-w-0">
-              <p className="text-slate-50 font-semibold truncate text-sm">{user?.name || 'User'}</p>
-              <p className="text-xs text-slate-400 truncate">{user?.email || ''}</p>
+              <p className="text-slate-900 font-semibold truncate text-sm">{user?.name || 'User'}</p>
+              <p className="text-xs text-slate-500 truncate">{user?.email || ''}</p>
             </div>
           </div>
         </div>
@@ -86,8 +86,8 @@ const Sidebar = () => {
               className={({ isActive }) => `
                 flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-sm group/item
                 ${isActive 
-                  ? 'bg-indigo-500 text-white shadow-md shadow-indigo-500/10' 
-                  : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200' 
+                  : 'text-slate-500 hover:text-indigo-600 hover:bg-slate-50'
                 }
               `}
             >
@@ -101,7 +101,7 @@ const Sidebar = () => {
         <div className="p-6 mt-auto">
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-center gap-2 p-3 text-slate-400 hover:text-white hover:bg-red-500/10 hover:border-red-500/20 border border-transparent rounded-xl transition-all font-medium"
+            className="w-full flex items-center justify-center gap-2 p-3 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all font-medium"
           >
             <MdLogout size={20} />
             Logout
